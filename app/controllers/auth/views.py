@@ -28,7 +28,6 @@ def login():
 @auth.route('/request/register')
 def request_register():
     form = RegisterForm()
-
     return render_template('auth/request_register.jinja2', form=form)
 
 
