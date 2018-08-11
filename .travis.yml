@@ -1,19 +1,14 @@
-sudo: false
+sudo: required
+
+language: python
 
 services:
-  - "docker"
+  - docker
 
-install:
-  - "docker run --name ocomonutario $DOCKER_IMAGE:latest"
+before_install:
+- docker pull carlad/sinatra
+- docker run -d marcusmann/ocomonitario
+- docker ps -a
 
-before_script:
-  - "export FLASK_APP="$TRAVIS_BUILD_DIR/$FLASK_APP"
-  - "export FLASK_ENV=$FLASK_ENV"
-  - "export DATABASE_URL=$DATABASE_URL"
-  - "export SECRET_KEY=$SECRET_KEY"
-  
 script:
-  - "docker build ."
-
-after_success:
-  - coveralls
+- docker build .
