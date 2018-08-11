@@ -1,14 +1,20 @@
-sudo: required
+sudo: false
 
-language: python
+language: 
+  - python
 
-services:
-  - docker
+python:
+    - "3.3"
+    - "3.4"
+    - "3.5"
+    - "3.6"
 
 before_install:
-- docker pull carlad/sinatra
-- docker run -d marcusmann/ocomonitario
-- docker ps -a
+    - "pip install coveralls"
+    - "pip install --no-cache-dir -r requirements.txt"
 
-script:
-- docker build .
+install:
+    - "python setup.py install"
+
+after_success:
+    - coveralls
