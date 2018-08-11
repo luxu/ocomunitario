@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 
 language: 
   - python
@@ -9,12 +9,9 @@ python:
     - "3.5"
     - "3.6"
 
-before_install:
+install:
     - "pip install coveralls"
     - "pip install --no-cache-dir -r requirements.txt"
-
-install:
-    - "python setup.py install"
 
 after_success:
     - coveralls
