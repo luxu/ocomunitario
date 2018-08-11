@@ -11,10 +11,11 @@ python:
 
 install:
     - "pip install coveralls"
+    - "pip install pytest-cov"
     - "pip install --no-cache-dir -r requirements.txt"
 
 script:
     - "make test"
-    
+
 after_success:
     - coveralls
