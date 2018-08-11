@@ -1,0 +1,45 @@
+{% extends '_base/base.jinja2' %}
+
+{# Remove the content comportament #}
+{% block content %}{%endblock%}
+
+{% block auth %}
+    <div class="page-single">
+        <div class="container">
+            <div class="row">
+                <div class="col col-login mx-auto">
+                    <div class="text-center mb-6">
+                        <img src="{{url_for('static', filename='demo/brand/tabler.svg')}}" class="h-6" alt="">
+                    </div>
+                    <form class="card" action="" method="post">
+                        {{ form.csrf_token }}
+                        <div class="card-body p-6">
+                            <div class="card-title">Entre com sua conta</div>
+                            <div class="form-group">
+                                {{ form.email.label }}
+                                {{ form.email(class='form-control') }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.password.label }}
+                                {{ form.password(class='form-control') }}
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox">
+                                    {{ form.remember_me(class='custom-control-input') }}
+                                    {{ form.remember_me.label(class='custom-control-label') }}
+                                </label>
+                            </div>
+                            <div class="form-footer">
+                                {{ form.submit(class='btn btn-primary btn-block') }}
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-center text-muted">
+                        Você não tem uma conta?
+                        <a href="{{ url_for('auth.request_register') }}">Solicite uma</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

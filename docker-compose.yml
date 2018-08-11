@@ -1,0 +1,22 @@
+
+version: '3'
+
+services:
+  ocomunitario:
+    build: ./
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "5000"
+    env_file: .env
+    depends_on:
+      - db
+    links: 
+      - db
+  
+  db:
+    image: postgres:10.4
+    env_file: .env-psql
+    ports:
+      - "5432"
+    restart: always

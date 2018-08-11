@@ -1,0 +1,29 @@
+jobs.groovy
+runtests.sh
+kube
+Makefile
+
+# Test stuff
+tests
+.coveragerc
+coverage.xml
+nosetests.xml
+
+# Docker stuff
+Dockerfile
+docker-compose.yml
+docker-compose-test.yml
+.env
+.dockerignore
+
+# Git stuff
+.git
+.gitignore
+
+.idea
+.vscode
+tags
+
+#celery
+celerybeat-schedule
+celerybeat.pid
