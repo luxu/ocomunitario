@@ -8,7 +8,7 @@ unsed:
 
 .PHONY: format
 format: unsed
-	autopep8 --in-place --aggressive --aggressive test/*.py app/controllers/*/*.py app/*.py
+	autopep8 --in-place --aggressive --aggressive tests/*.py app/controllers/*/*.py app/*.py
 
 .PHONY: clean-pyc clean-build clean
 clean: clean-build clean-pyc
