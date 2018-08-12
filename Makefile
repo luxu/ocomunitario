@@ -1,6 +1,6 @@
 .PHONY: test
 test:
-	py.test --cov-report term-missing --cov tests
+	python -m unittest discover tests
 
 .PHONY: unsed
 unsed:
