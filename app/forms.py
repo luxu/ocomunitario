@@ -8,6 +8,7 @@ class LoginForm(FlaskForm):
         DataRequired(),
         Email(),
         Length(3, 64)])
+
     password = PasswordField('Senha', validators=[
         DataRequired(),
         Length(3, 6)])
@@ -17,9 +18,21 @@ class LoginForm(FlaskForm):
 
 
 class RegisterForm(FlaskForm):
+    first_name = StringField('First Name', validators=[
+        DataRequired(),
+        Length(0, 10)])
+
+    last_name = StringField('First Name', validators=[
+        DataRequired(),
+        Length(0, 10)])
+
     email = StringField('E-mail', validators=[
         DataRequired(),
         Email(),
         Length(3, 64)])
-        
+
+    password = PasswordField('Senha', validators=[
+        DataRequired(),
+        Length(3, 6)])
+
     submit = SubmitField('Solicitar')
